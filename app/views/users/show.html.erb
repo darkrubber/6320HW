@@ -1,0 +1,17 @@
+<h1><%= @users.first_name %> <%= @users.last_name %> Photo Album</h1>
+
+
+<% @photos.each do |photos| %>
+    <%= image_tag (photos.file_name) %><br>
+    <span>Created at:</span> <%= photos.date_time %>
+    <p>Comments:</p>
+      <% @comments.each do |comments| %>
+            <% if comments.photo_id.to_i == photos.id.to_i %>
+                <%= "< "+comments.comment_text+" >"%><br>
+                <span>By: </span><%= link_to comments.user.first_name+" "+comments.user.last_name,comments.user %>
+                <%= comments.date_time %><br>
+            <% end %>
+    <% end %><br><br><br>
+<% end %>
+
+

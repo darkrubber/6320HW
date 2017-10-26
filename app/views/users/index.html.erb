@@ -1,0 +1,17 @@
+<h1>PhotoSite User List</h1>
+<br>
+<p>There are <%= User.count %> users</p>
+<table>
+  <tr>
+    <th>User</th>
+    <th>First</th>
+    <th>Last</th>
+  </tr>
+  <% User.all.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+  </tr>
+  <% end %>
+</table>
